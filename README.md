@@ -37,3 +37,27 @@ Python是解释性、编译型、互动型的面向对象的脚本语言。
 * bottle
 * EVE-网络游戏EVE大量使用Python开发
 * Bleander-使用Python作为建模工具
+
+
+## 基础语法
+
+### 引入包
+
+* 导入整个包/模块：`import time`
+```python
+import time
+print(time.time())
+```
+* 导入模块中某个函数：`from time import sleep`
+```python
+from time import time
+print(time())
+```
+* 导入多个函数：`from time import sleep, time`
+```python
+from time import sleep, time
+sleep(1)
+print(time())
+```
+* 导入全部函数：`from time import *`
+> 和上面调用方法一致

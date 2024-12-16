@@ -43,6 +43,12 @@ def main():
 
     print(r"------------------------------------------------------------")
 
+import time
+from time import time, sleep
 
 if __name__ == "__main__":
-    main()
+    # main()
+    # print(time.time())
+    
+    sleep(2) # 休眠2秒
+    print(time())
