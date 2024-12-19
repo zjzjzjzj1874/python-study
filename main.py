@@ -46,6 +46,7 @@ def main():
 import time
 from time import time, sleep
 
+# 确保代码仅在作为主程序运行时执行，不在被导入模块时执行。
 if __name__ == "__main__":
     # main()
     # print(time.time())
