@@ -2,10 +2,13 @@
 Author: zjzjzjzj1874 zjzjzjzj1874@gmail.com
 Date: 2024-12-16 18:28:41
 LastEditors: zjzjzjzj1874 zjzjzjzj1874@gmail.com
-LastEditTime: 2024-12-19 11:20:40
+LastEditTime: 2025-01-07 16:54:21
 FilePath: /python-study/examples/data_type.py
 Description: python的数据类型
 '''
+
+import math # 导入math模块，用于计算
+
 # 基础数据类型-字符串类型
 def str_test():
     print("----------------- str_test -----------------")
@@ -21,6 +24,14 @@ def str_test():
     # 转义特殊字符
     print('Hello\nWorld') # \n会被转义
     print(r'Hello\nWorld') # \n不会被转义
+    
+    # 其他输出的方法
+    # 使用str.format()方法
+    print("Hello, {0}, 成绩提升了 {1:.2f}%".format("小明", 10.56789))
+    # 使用f-string
+    name = "小明"
+    score = 10.56789
+    print(f"Hello, {name}, 成绩提升了 {score:.2f}%")    
     
 # 基础数据类型-布尔类型
 def bool_test():
@@ -95,6 +106,90 @@ def set_test():
     print("a - b == ",a - b) # 差集
     print("a ^ b == ",a ^ b) # 对称差集，不同时存在的
 
+def dict_test():
+    print("----------------- dict_test -----------------")
+    # 字典类型，键值对的集合，键必须是不可变类型，如字符串、数字、元组等
+    # 字典是无序的，键值对的集合，键必须是不可变类型，如字符串、数字、元组等
+    # 字典的键必须是唯一的，不能重复，值可以重复
+    # 字典的键值对通过冒号分隔，键和值用逗号分隔
+    # 字典的创建方式有两种，第一种是通过{}，第二种是通过dict()方法
+    # 字典的访问方式和列表类似，通过键访问值
+    # 字典的修改方式和列表类似，通过键修改值
+    # 字典的删除方式和列表类似，通过del语句删除键值对
+    # 字典的长度通过len()方法获取   
+    
+    a = {'name': '小明', 'age': 18, 'gender': '男', 1: 'one'} # 字典,key类型可以是数字、字符串、元组等
+    print("a == ",a)
+    print("a['name'] == ",a['name'])
+    a['age'] = 19 # 修改值
+    print("a['age'] == ",a['age'])
+    a['city'] = '北京' # 添加键值对
+    print("a['city'] == ",a['city'])
+    del a['city'] # 删除键值对
+    print("a == ",a)
+    print("len(a) == ",len(a))
+    
+    # 字典的遍历方式    
+    for key in a:
+        print(key, a[key])
+    
+    print(" ---------- map range with key value ---------")
+    for key, value in a.items():
+        print(key, value)
+    
+    print(" ---------- map a.fromkeys() ---------")
+    nd = dict.fromkeys(a) # 通过fromkeys()方法创建字典
+    print("nd == ",nd)
+    
+    # 字典的更新方式
+    a.update({'name': '小明变小红', 'age': 20})
+    print("a == ",a)
+    
+    # 字典的合并方式
+    b = {'name': '小张', 'age': 21}
+    a.update(b)
+    print("a == ",a)
+    
+    # 字典的删除方式
+    del a['age']
+    print("a == ",a)
+    
+    # 字典的清空方式
+    a.clear()
+    print("a == ",a)
+    
+    # 字典的拷贝方式
+    c = a.copy()
+    print("c == ",c)
+    
+    # 字典的键值对排序方式
+    d = {'name': '小明', 'age': 18, 'gender': '男'}
+    print("d == ",d)
+    # 按键排序
+    for key in sorted(d):
+        print(key, d[key])
+    
+def num_test():
+    ''' 数字类型 '''
+    print("----------------- num_test -----------------")
+    
+    print(math.sin(math.radians(30))) # 转成弧度
+    
+    print(abs(-10))# 绝对值
+    
+def lambda_test():
+    print("----------------- lambda_test -----------------")
+    # 闭包，闭包是函数内部的函数，可以访问函数内部的变量
+    def mf(n):
+        return lambda x: x * n
+    
+    mf1 = mf(1)
+    mf2 = mf(2)
+    mf3 = mf(3)
+    print(mf1(10))
+    print(mf2(10))
+    print(mf3(10))
+    
 # 反转字符串    
 def reverseWords(input): 
     # 通过空格将字符串分隔符，把各个单词分隔为列表
@@ -146,7 +241,19 @@ if __name__ == '__main__':
     # tuple_test()
     
     # 集合类型
-    set_test()
+    # set_test()
+    
+    # 字典类型    
+    # dict_test()
+    
+    # 数字类型
+    # num_test()
+    
+    # 闭包
+    lambda_test()
+    
+    
+    
     
     
 
