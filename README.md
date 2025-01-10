@@ -2,7 +2,7 @@
  * @Author: zjzjzjzj1874 zjzjzjzj1874@gmail.com
  * @Date: 2024-12-16 14:42:38
  * @LastEditors: zjzjzjzj1874 zjzjzjzj1874@gmail.com
- * @LastEditTime: 2024-12-31 15:01:28
+ * @LastEditTime: 2025-01-10 14:40:59
  * @FilePath: /python-study/README.md
  * @Description: python学习笔记
 -->
@@ -166,5 +166,101 @@ if a is not b:
 ```
 
 
+## 面向对象编程
+
+### 类  
+* 定义类：`class 类名(object):`
+* 实例化对象：`对象名 = 类名()`
+* 访问属性：`对象名.属性名` 
+
+* 类的方法
+    * 普通方法：对象访问，实例化之后才能访问
+    * 私有方法：两下划线开头，只能在内部访问
+    * 静态方法：类和对象访问，不能和其他方法重名，否则会相互覆盖，后面定义覆盖前面
+    * 类方法：类和对象访问，第一个参数是类，而不是实例化的对象，后面定义覆盖前面
+类的专有方法：
+* `__init__` : 构造函数，在生成对象时调用
+* `__del__` : 析构函数，释放对象时使用
+* `__repr__` : 打印，转换
+* `__setitem__` : 按照索引赋值
+* `__getitem__`: 按照索引获取值
+* `__len__`: 获得长度
+* `__cmp__`: 比较运算
+* `__call__`: 函数调用
+* `__add__`: 加运算
+* `__sub__`: 减运算
+* `__mul__`: 乘运算
+* `__truediv__`: 除运算
+* `__mod__`: 求余运算
+* `__pow__`: 乘方
+* `__divmod__`: 除法运算
+* `__floordiv__`: 整除运算
+* `__radd__`: 右加运算
+* `__rsub__`: 右减运算
+* `__rmul__`: 右乘运算
+* `__rtruediv__`: 右除运算
+* `__rpow__`: 右乘方
 
 
+## 标准库预览
+
+### os模块
+* os.path.abspath(path) ：返回path规范化的绝对路径
+* os.path.split(path) ：将path分割成目录和文件名二元组返回
+* os.path.dirname(path) ：返回path的目录。其实就是os.path.split(path)的第一个元素
+* os.path.basename(path) ：返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。即os.path.split(path)的第二个元素
+* os.path.exists(path) ：如果path存在，返回True；如果path不存在，返回False
+* os.path.isabs(path) ：如果path是绝对路径，返回True
+* os.path.isfile(path) ：如果path是一个存在的文件，返回True。否则返回False
+* os.path.isdir(path) ：如果path是一个存在的目录，则返回True。否则返回False
+* os.path.join(path1[, path2[, ...]]) ：将多个路径组合后返回，第一个绝对路径之前的参数将被忽略
+* os.path.getsize(path) ：返回path的大小
+* os.getcwd() ：返回当前工作目录
+* os.chdir(path) ：改变当前工作目录
+* os.listdir(path) ：返回path指定的文件夹包含的文件或文件夹的名字的列表
+* os.mkdir(path) ：创建path路径
+* os.rmdir(path) ：删除path路径
+* os.remove(path) ：删除path路径
+* os.rename(old, new) ：重命名文件或目录，从old到new
+
+### sys模块
+* sys.argv ：命令行参数List，第一个元素是程序本身路径
+* sys.exit(n) ：退出程序，正常退出时exit(0)
+* sys.version ：获取Python解释程序的版本信息
+* sys.path ：返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值
+* sys.platform ：返回操作系统平台名称
+
+命令行参数
+通用工具脚本经常调用命令行参数。这些命令行参数以链表形式存储于 sys 模块的 argv 变量。例如在命令行中执行 "python demo.py one two three" 后可以得到以下输出结果:
+```python
+>> import sys
+>> print(sys.argv)
+['demo.py', 'one', 'two', 'three']
+```
+
+### time模块
+* time.time() ：返回当前时间戳
+* time.sleep(seconds) ：暂停seconds秒
+* time.strftime(format[, t]) ：返回格式化的时间
+* time.strptime(string[, format]) ：把一个格式化时间字符串转化为struct_time
+* time.mktime(t) ：把一个struct_time转化为时间戳
+
+### datetime模块
+* datetime.datetime.now() ：返回当前日期和时间
+* datetime.datetime.strptime(date_string, format) ：把一个格式化时间字符串转化为datetime对象
+* datetime.datetime.strftime(datetime_object, format) ：把一个datetime对象转化为格式化时间字符串
+
+### random模块
+* random.random() ：返回0到1之间的随机浮点数
+* random.randint(a, b) ：返回a到b之间的随机整数
+* random.choice(sequence) ：从序列中随机选择一个元素
+* random.shuffle(sequence) ：将序列中的元素随机排序
+* random.sample(sequence, k) ：从序列中随机选择k个元素
+
+### math模块
+
+### 正则模块
+
+### json模块  
+
+### urllib模块
